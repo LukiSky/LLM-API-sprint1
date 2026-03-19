@@ -30,14 +30,16 @@ uvicorn main:app --host 0.0.0.0 --port 8000 --reload
 
 ## 3) Endpoints
 
-- `GET /health`
-- `POST /generate-story`
+- `GET /api/v1/health`
+- `POST /api/v1/stories/generate`
 
 Example request:
 
 ```json
 {
-  "prompt": "Write a funny educational story for kids about a lunar eclipse.",
+  "abstract": "A lunar eclipse happens when Earth moves between the Sun and Moon, casting Earth's shadow on the Moon. It does not happen every month because the Moon's orbit is tilted.",
+  "education_topic": "Lunar eclipse",
+  "abstract_prompt": "Turn this abstract into a funny and easy-to-understand 5-minute story for children age 8-12. Include clear explanations and playful reactions.",
   "temperature": 0.7,
   "max_tokens": 1400
 }
@@ -46,9 +48,9 @@ Example request:
 Example curl:
 
 ```powershell
-curl -X POST "http://127.0.0.1:8000/generate-story" `
+curl -X POST "http://127.0.0.1:8000/api/v1/stories/generate" `
   -H "Content-Type: application/json" `
-  -d "{\"prompt\":\"Write a 5-minute children's story about a lunar eclipse, plain text only.\"}"
+  -d "{\"abstract\":\"A lunar eclipse happens when Earth blocks sunlight from reaching the Moon.\",\"education_topic\":\"Lunar eclipse\",\"abstract_prompt\":\"Write a playful story for kids from this abstract.\"}"
 ```
 
 Interactive docs:

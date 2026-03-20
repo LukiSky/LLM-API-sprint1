@@ -84,4 +84,4 @@ class AbstractItem(BaseModel):
 class AbstractOnlyItem(BaseModel):
     """A single abstract without story prompt."""
 
-    abstract: str
+    abstract: list[str]

@@ -1,0 +1,20 @@
+from fastapi import APIRouter
+
+from schemas.abstract import AbstractGenerateRequest, AbstractItem, AbstractOnlyItem
+from services.abstract_service import AbstractService
+
+
+router = APIRouter(prefix="/abstract", tags=["abstract"])
+abstract_service = AbstractService()
+
+
+@router.post("/generate", response_model=list[AbstractItem | AbstractOnlyItem])
+def generate_abstract(payload: AbstractGenerateRequest) -> list[AbstractItem | AbstractOnlyItem]:
+    """
+    Generate story abstracts from a theme or "why?" question.
+
+    Returns a list of abstract outputs. Use count to request multiple.
+    Set include_story_prompt=true to include story_prompt in each item.
+    Set include_story_prompt=false to return abstract-only items.
+    """
+    return abstract_service.generate_abstract(payload)

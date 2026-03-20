@@ -105,12 +105,12 @@ class StoryService:
             "Abstract source material:\n"
             "{abstract}\n\n"
             "Instructions for using the abstract:\n"
-            "{abstract_prompt}\n"
+            "{story_prompt}\n"
         )
         generation_prompt = generation_template.format(
             education_topic=payload.education_topic,
             abstract=payload.abstract,
-            abstract_prompt=payload.abstract_prompt,
+            story_prompt=payload.story_prompt,
         )
 
         story_text = self._invoke_chat(
@@ -364,7 +364,7 @@ class StoryService:
                 StoryRequest(
                     abstract=payload.abstract,
                     education_topic=payload.education_topic,
-                    abstract_prompt=payload.abstract_prompt,
+                    story_prompt=payload.story_prompt,
                     temperature=payload.generation_temperature,
                     max_tokens=payload.generation_max_tokens,
                 )

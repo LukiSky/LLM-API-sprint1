@@ -8,7 +8,7 @@ class StoryRequest(BaseModel):
     education_topic: str = Field(
         ..., min_length=2, description="Educational topic that must be explained in the story"
     )
-    abstract_prompt: str = Field(
+    story_prompt: str = Field(
         ..., min_length=10, description="Prompt instruction describing how to transform the abstract into a story"
     )
     temperature: float = Field(0.7, ge=0.0, le=1.5)
@@ -16,7 +16,6 @@ class StoryRequest(BaseModel):
 
 
 class StoryResponse(BaseModel):
-    model: str
     story: str
 
 
@@ -64,7 +63,7 @@ class StoryGenerateWithQualityRequest(BaseModel):
     education_topic: str = Field(
         ..., min_length=2, description="Educational topic that must be explained in the story"
     )
-    abstract_prompt: str = Field(
+    story_prompt: str = Field(
         ..., min_length=10, description="Prompt instruction describing how to transform the abstract into a story"
     )
 

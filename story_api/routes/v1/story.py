@@ -11,12 +11,18 @@ from schemas.story import (
 from services.story_service import StoryService
 
 
-router = APIRouter(prefix="/stories", tags=["stories"])
+router = APIRouter(prefix="/story", tags=["story"])
 story_service = StoryService()
 
 
 @router.post("/generate", response_model=StoryResponse)
 def generate_story(payload: StoryRequest) -> StoryResponse:
+    """
+    Generate a full story from an abstract.
+
+    Use the abstract from POST /abstract/generate, or provide your own.
+    Requires education_topic and story_prompt to guide the transformation. Use story_prompt from POST /abstract/generate.
+    """
     return story_service.generate_story(payload)
 
 

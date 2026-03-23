@@ -122,7 +122,8 @@ class StoryService:
         if not story_text.strip():
             raise HTTPException(status_code=502, detail="Model returned empty content")
 
-        return StoryResponse(model=DEFAULT_MODEL, story=story_text)
+        # TODO: add title
+        return StoryResponse(model=DEFAULT_MODEL, story=story_text, title="title")
 
     @staticmethod
     def _extract_json_dict(text: str) -> dict[str, Any] | None:

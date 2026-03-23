@@ -17,6 +17,7 @@ class StoryRequest(BaseModel):
 
 class StoryResponse(BaseModel):
     story: str
+    title: str
 
 
 class StoryQualityCheckRequest(BaseModel):

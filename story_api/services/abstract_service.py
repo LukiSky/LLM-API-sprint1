@@ -6,8 +6,8 @@ from fastapi import HTTPException
 from langchain_core.messages import HumanMessage
 from langchain_openai import ChatOpenAI
 
-from core.config import DEFAULT_MODEL, HF_ROUTER_BASE_URL, read_hf_token
-from schemas.abstract import AbstractGenerateRequest, AbstractItem, AbstractOnlyItem
+from story_api.core.config import DEFAULT_MODEL, HF_ROUTER_BASE_URL, read_hf_token
+from story_api.schemas.abstract import AbstractGenerateRequest, AbstractItem, AbstractOnlyItem
 
 
 def _extract_json_dict(text: str) -> dict[str, Any] | None:

@@ -1,7 +1,7 @@
 from fastapi import APIRouter
 
-from schemas.abstract import AbstractGenerateRequest, AbstractItem, AbstractOnlyItem
-from services.abstract_service import AbstractService
+from story_api.schemas.abstract import AbstractGenerateRequest, AbstractItem, AbstractOnlyItem
+from story_api.services.abstract_service import AbstractService
 
 
 router = APIRouter(prefix="/abstract", tags=["abstract"])

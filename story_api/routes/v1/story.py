@@ -1,6 +1,6 @@
 from fastapi import APIRouter
 
-from schemas.story import (
+from story_api.schemas.story import (
     StoryGenerateWithQualityRequest,
     StoryGenerateWithQualityResponse,
     StoryQualityCheckRequest,
@@ -8,7 +8,7 @@ from schemas.story import (
     StoryRequest,
     StoryResponse,
 )
-from services.story_service import StoryService
+from story_api.services.story_service import StoryService
 
 
 router = APIRouter(prefix="/story", tags=["story"])

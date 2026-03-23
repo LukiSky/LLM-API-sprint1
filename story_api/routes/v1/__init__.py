@@ -1,8 +1,8 @@
 from fastapi import APIRouter
 
-from routes.v1.abstract import router as abstract_router
-from routes.v1.health import router as health_router
-from routes.v1.story import router as story_router
+from story_api.routes.v1.abstract import router as abstract_router
+from story_api.routes.v1.health import router as health_router
+from story_api.routes.v1.story import router as story_router
 
 
 api_v1_router = APIRouter(prefix="/v1")

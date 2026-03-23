@@ -1,15 +1,16 @@
 version: '3.8'
 
 services:
-  web:
+  llm-api:
     build: .
-    container_name: llm-api-sprint1
+    container_name: llm-api
     ports:
       - "8090:8090"
     volumes:
-      - ./:/story_api
+      - ./:/app
     networks:
       - shared-net
+    tty: true
 
 networks:
   shared-net:

@@ -65,14 +65,6 @@ class AbstractGenerateRequest(BaseModel):
         description="Number of abstracts to generate. Each will have a unique abstract and story_prompt.",
     )
 
-    include_story_prompt: bool = Field(
-        True,
-        description=(
-            "When true, each item includes both abstract and story_prompt. "
-            "When false, the response includes abstract only."
-        ),
-    )
-
 
 class AbstractItem(BaseModel):
     """A single abstract with its story prompt."""

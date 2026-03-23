@@ -8,8 +8,8 @@ router = APIRouter(prefix="/abstract", tags=["abstract"])
 abstract_service = AbstractService()
 
 
-@router.post("/generate", response_model=list[AbstractItem | AbstractOnlyItem])
-def generate_abstract(payload: AbstractGenerateRequest) -> list[AbstractItem | AbstractOnlyItem]:
+@router.post("/generate", response_model=list[AbstractItem])
+def generate_abstract(payload: AbstractGenerateRequest) -> list[AbstractItem]:
     """
     Generate story abstracts from a theme or "why?" question.
 

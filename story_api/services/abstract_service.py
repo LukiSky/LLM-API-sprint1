@@ -111,7 +111,7 @@ class AbstractService:
 
     def _generate_single_abstract(
         self, payload: AbstractGenerateRequest
-    ) -> AbstractItem | AbstractOnlyItem:
+    ) -> AbstractItem:
         """Generate one abstract and story_prompt pair."""
         output_format = (
             "\n\nOUTPUT FORMAT (STRICT): Return valid JSON only with these keys:\n"
@@ -172,13 +172,13 @@ class AbstractService:
 
     def generate_abstract(
         self, payload: AbstractGenerateRequest
-    ) -> list[AbstractItem | AbstractOnlyItem]:
+    ) -> list[AbstractItem]:
         """
         Generate one or more story abstracts with story prompts from a theme or "why?" question.
         Uses randomness (via temperature) to produce varied abstracts
         while maintaining story quality through the prompt.
         """
-        abstracts: list[AbstractItem | AbstractOnlyItem] = []
+        abstracts: list[AbstractItem] = []
         for _ in range(payload.count):
             item = self._generate_single_abstract(payload)
             abstracts.append(item)

@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    container_name: llm-api-sprint1
+    ports:
+      - "8090:8090"
+    volumes:
+      - ./:/story_api
+    networks:
+      - shared-net
+
+networks:
+  shared-net:
+    external: true
+    name: deep-audio-network

@@ -1,6 +1,6 @@
 from fastapi import APIRouter
 
-from story_api.schemas.story import (
+from schemas.story import (
     StoryGenerateWithQualityRequest,
     StoryGenerateWithQualityResponse,
     StoryQualityCheckRequest,
@@ -8,7 +8,7 @@ from story_api.schemas.story import (
     StoryRequest,
     StoryResponse,
 )
-from story_api.services.story_service import StoryService
+from services.story_service import StoryService
 
 
 router = APIRouter(prefix="/story", tags=["story"])
@@ -36,3 +36,4 @@ def generate_story_with_quality_gate(
     payload: StoryGenerateWithQualityRequest,
 ) -> StoryGenerateWithQualityResponse:
     return story_service.generate_story_with_quality_gate(payload)
+

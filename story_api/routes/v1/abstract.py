@@ -1,7 +1,7 @@
 from fastapi import APIRouter
 
-from story_api.schemas.abstract import AbstractGenerateRequest, AbstractItem, AbstractOnlyItem
-from story_api.services.abstract_service import AbstractService
+from schemas.abstract import AbstractGenerateRequest, AbstractItem, AbstractOnlyItem
+from services.abstract_service import AbstractService
 
 
 router = APIRouter(prefix="/abstract", tags=["abstract"])
@@ -18,3 +18,4 @@ def generate_abstract(payload: AbstractGenerateRequest) -> list[AbstractItem]:
     Set include_story_prompt=false to return abstract-only items.
     """
     return abstract_service.generate_abstract(payload)
+

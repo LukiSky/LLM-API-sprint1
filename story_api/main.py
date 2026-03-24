@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 
-from story_api.routes.v1 import api_v1_router
+from routes.v1 import api_v1_router
 
 
 app = FastAPI(title="Story Generation API", version="1.0.0")

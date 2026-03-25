@@ -139,7 +139,7 @@ class StoryService:
                 if remaining:
                     story_text = remaining
             else:
-                title = "A Curious Storya"
+                title = "Story Title"
 
         return StoryResponse(story=story_text, title=title)
 
